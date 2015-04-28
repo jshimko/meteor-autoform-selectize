@@ -1,7 +1,7 @@
 Package.describe({
-  name: 'autoform-selectize',
+  name: 'jeremy:autoform-selectize',
   summary: 'Custom Selectize input type for AutoForm',
-  version: '0.1.0',
+  version: '0.1.1',
   git: 'https://github.com/jshimko/meteor-autoform-selectize.git'
 });
 
@@ -11,8 +11,8 @@ Package.onUse(function(api) {
   api.use([
     'templating',
     'blaze',
-    'aldeed:autoform',
-    'jeremy:selectize'
+    'aldeed:autoform@5.1.2',
+    'jeremy:selectize@0.12.1_2'
   ]);
 
   api.imply('jeremy:selectize');
