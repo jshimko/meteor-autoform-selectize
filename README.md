@@ -23,7 +23,16 @@ In the schema, which will then work with a `quickForm` or `afQuickFields`:
       type: "selectize",
       afFieldInput: {
         multiple: true,
-        selectizeOptions: {}
+        selectizeOptions: {
+          delimiter: ',',
+						persist: false,
+						create: function(input) {
+							return {
+								value: input,
+								text: input
+							}
+						}
+        }
       }
     }
   }
