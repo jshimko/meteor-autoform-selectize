@@ -42,3 +42,33 @@ Or on the `afFieldInput` component or any component that passes along attributes
 
 To provide selectize options, set a `selectizeOptions` attribute equal to a helper that returns the options object. Most of the `data-` attributes that the plugin recognizes should also work.
 
+### Reactive collection data
+
+To add reactive collection data, add the `isReactiveOptions: true` to the selectizeOptions, for example:
+
+```js
+// some autoform field
+{
+  type: String,
+  label: 'Paper',
+
+  autoform: {
+    type: 'selectize',
+    options: function () {
+        const papers = Papers.find({}).map(element => {
+            return {
+                label: `${element.name} ${element.format.width || 0}x${element.format.height || 0}mm / ${element.thickness || 0}µm / ${element.gramWeight || 0}g`,
+                value: element._id
+            }
+        });
+        return papers;
+    },
+
+    afFieldInput: {
+        selectizeOptions: {
+            isReactiveOptions: true
+        }
+    }
+  }
+}
+```
