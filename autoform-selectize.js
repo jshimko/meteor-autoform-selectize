@@ -139,8 +139,8 @@ Template.afSelectize.rendered = function () {
   this.$('select').selectize(this.data.atts.selectizeOptions || {});
 
   var isReactiveOptions;
-  if (_.has(this.data.atts, 'isReactiveOptions')) {
-    isReactiveOptions = this.data.atts.isReactiveOptions;
+  if (_.has(this.data.atts, 'isReactiveOptions') || _.has(this.data.atts, 'selectizeOptions')) {
+    isReactiveOptions = this.data.atts.isReactiveOptions || (this.data.atts.selectizeOptions && this.data.atts.selectizeOptions.isReactiveOptions);
   } else {
     isReactiveOptions = _defaults.isReactiveOptions;
   }
